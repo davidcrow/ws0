@@ -1,14 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>{{ title }}</title>
-  <link href="/style.css" rel="stylesheet">
-  <!-- Fathom - beautiful, simple website analytics --> 
-  <script src="https://cdn.usefathom.com/script.js" data-site="DICSSAME" defer></script> 
-  <!-- / Fathom -->
-</head>
-<body class="mx-auto p-8">
-  {{ content | safe }}
-</body>
+<html lang="en" class="bg-black text-white">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title or "WS0" }}</title>
+    <link rel="stylesheet" href="/style.css" />
+    {% if env != "development" %}
+      <!-- Fathom - beautiful, simple website analytics --> 
+      <script src="https://cdn.usefathom.com/script.js" data-site="DICSSAME" defer></script> 
+      <!-- / Fathom -->
+    {% endif %}
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body class="min-h-screen font-mono">
+
+    <main class="max-w-3xl mx-auto px-4 py-12">
+      {{ content | safe }}
+    </main>
+
+  </body>
 </html>

@@ -12,7 +12,7 @@
  "scripts": {
     "build:css": "postcss src/css/tailwind.css -o _site/style.css",
     "build": "eleventy && npm run build:css",
-    "dev": "postcss src/css/tailwind.css -o _site/style.css --watch & eleventy --serve",
+    "dev": "eleventy --serve & postcss src/css/tailwind.css -o _site/style.css --watch",
     "deploy": "npm run build && wrangler deploy"
 }
 }
