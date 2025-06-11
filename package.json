@@ -9,10 +9,10 @@
     "tailwindcss-cli": "^0.1.2",
     "wrangler": "^4.19.2"
   },
-  "scripts": {
-    "build:css": "npx tailwindcss-cli -i ./src/css/tailwind.css -o ./_site/style.css --minify",
-    "build": "npm run build:css && eleventy",
-    "dev": "npx tailwindcss-cli -i ./src/css/tailwind.css -o ./_site/style.css --watch & eleventy --serve",
-    "deploy": "wrangler deploy"
-  }
+ "scripts": {
+    "build:css": "postcss src/css/tailwind.css -o _site/style.css",
+    "build": "eleventy && npm run build:css",
+    "dev": "postcss src/css/tailwind.css -o _site/style.css --watch & eleventy --serve",
+    "deploy": "npm run build && wrangler deploy"
+}
 }
