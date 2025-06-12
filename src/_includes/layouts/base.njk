@@ -3,16 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ title or "WS0" }}</title>
+
+    <title>{{ title or "WS / Ø" }}</title>
+    <meta name="description" content="{{ description or 'Tactical tools for founders operating under fire. Built by David Crow. Start with the Founder Finance Field Manual.' }}">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="{{ title or 'WS / Ø' }}">
+    <meta property="og:description" content="{{ description or 'Tactical tools for founders navigating uncertainty, burn, and pressure.' }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ page.url | toAbsoluteUrl }}">
+    <meta property="og:image" content="https://ws0.io/images/social-card.jpg"> {# Replace with real image if available #}
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ title or 'WS / Ø' }}">
+    <meta name="twitter:description" content="{{ description or 'Tactical tools for founders operating under fire.' }}">
+    <meta name="twitter:image" content="https://ws0.io/images/social-card.jpg"> {# Replace with real image #}
+
     <link rel="stylesheet" href="/style.css" />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=JetBrains+Mono:wght@400;600;700&family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
     {% if env != "development" %}
       <!-- Fathom - beautiful, simple website analytics --> 
       <script src="https://cdn.usefathom.com/script.js" data-site="DICSSAME" defer></script> 
       <!-- / Fathom -->
     {% endif %}
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
   </head>
-  <body class="min-h-screen font-mono">
+  <body class="min-h-screen">
 
     <main class="max-w-3xl mx-auto px-4 py-12">
       {{ content | safe }}
